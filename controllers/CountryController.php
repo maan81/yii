@@ -10,11 +10,12 @@ class CountryController extends Controller
 {
 	public function actionIndex()
 	{
-		$query = Country::find();
+		// $query = Country::find();
+		$query = \app\models\Country::find();
 
 		$pagination = new Pagination([
 			'defaultPageSize' => 5,
-			'totalCount' => $QURY->	count(),
+			'totalCount' => $query->count(),
 		]);
 
 		$countries = $query->orderBy('name')
